@@ -56,7 +56,7 @@ Se ajustan por variable de entorno, sin tocar el código:
 |---|---|---|
 | `CPL_AMBER` | `2.00` | CPL de 7 días por encima → ámbar |
 | `CPL_RED` | `2.86` | el doble del objetivo → rojo |
-| `FREQ_AMBER` | `3.0` | frecuencia de 7 días por encima → ámbar (fatiga) |
+| `FREQ_AMBER` | `4.0` | frecuencia de 7 días por encima → ámbar (fatiga) |
 | `CTR_DROP_AMBER` | `0.30` | caída del CTR mayor del 30 % vs. semana anterior |
 | `CONV_MIN_7D` | `50` | conjunto por debajo → aprendizaje limitado |
 | `CONCENTRATION_RED` | `0.80` | un anuncio por encima de esta cuota del gasto del conjunto |

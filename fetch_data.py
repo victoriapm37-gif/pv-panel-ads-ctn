@@ -42,7 +42,7 @@ TARGET_CPL = float(os.environ.get("TARGET_CPL", "1.43"))
 # resulta rentable y no molesta).
 CPL_AMBER = float(os.environ.get("CPL_AMBER", "2.00"))
 CPL_RED = float(os.environ.get("CPL_RED", "2.86"))            # 2x el objetivo
-FREQ_AMBER = float(os.environ.get("FREQ_AMBER", "3.0"))
+FREQ_AMBER = float(os.environ.get("FREQ_AMBER", "4.0"))
 CTR_DROP_AMBER = float(os.environ.get("CTR_DROP_AMBER", "0.30"))
 CONV_MIN_7D = int(os.environ.get("CONV_MIN_7D", "50"))
 CONCENTRATION_RED = float(os.environ.get("CONCENTRATION_RED", "0.80"))

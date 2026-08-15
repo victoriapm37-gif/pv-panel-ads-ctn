@@ -122,7 +122,7 @@ def main():
         print("  [%-5s] %-34s %s" % (al["level"], al["title"], al["detail"][:70]))
     niveles = {a["key"]: a["level"] for a in rep["alerts"]}
     check("CPL en verde (1,12 < 2,00)", niveles["cpl"], "green")
-    check("frecuencia en verde (1,56 < 3)", niveles["frecuencia"], "green")
+    check("frecuencia en verde (1,56 < 4)", niveles["frecuencia"], "green")
     check("CTR en verde (sube)", niveles["ctr"], "green")
     check("aprendizaje en verde (86 >= 50)", niveles["aprendizaje"], "green")
     check("entrega marcada (hubo concentracion en 7d)",
