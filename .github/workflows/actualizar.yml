@@ -43,3 +43,5 @@ jobs:
             git commit -m "Datos al $(date -u +%Y-%m-%d)"
             git push
           fi
+
+# Registrado el 15-ago-2026.
