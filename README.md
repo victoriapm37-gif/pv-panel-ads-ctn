@@ -31,6 +31,11 @@ GitHub Actions (cron diario)
 El filtrado por campaña se hace en Python, no en la URL: la API no documenta un
 parámetro de filtro estable y `campaign_id` es único.
 
+**La clave va en la URL, no en una cabecera.** La documentación de Windsor afirma
+que acepta `X-Api-Key` y `Authorization: Bearer`; es falso, las dos devuelven
+`400 Not authorized` (comprobado el 15-ago-2026). Por eso el script no escribe
+nunca la URL en los logs: llevaría la clave dentro.
+
 ## Campos y trampas
 
 Los 15 campos usados están verificados contra el conector. **No existen los

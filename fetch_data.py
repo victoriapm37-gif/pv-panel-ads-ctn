@@ -109,8 +109,15 @@ def dstr(d):
 # --------------------------------------------------------------------------
 
 def windsor_get(api_key, fields, date_from, date_to):
-    """GET a la API de conectores de Windsor. Devuelve la lista de filas."""
+    """GET a la API de conectores de Windsor. Devuelve la lista de filas.
+
+    La clave va como parametro de la URL. Su documentacion dice que tambien
+    acepta las cabeceras X-Api-Key y Authorization: Bearer, pero es falso:
+    ambas responden 400 "Not authorized" (comprobado el 15-ago-2026). Por eso
+    la URL no se escribe nunca en los logs: llevaria la clave dentro.
+    """
     params = {
+        "api_key": api_key,
         "fields": ",".join(fields),
         "date_from": date_from,
         "date_to": date_to,
@@ -118,7 +125,6 @@ def windsor_get(api_key, fields, date_from, date_to):
     }
     url = BASE_URL + "?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={
-        "X-Api-Key": api_key,
         "Accept": "application/json",
         "User-Agent": "pv-dashboard/1.0",
     })
