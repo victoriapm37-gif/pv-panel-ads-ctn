@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Dossier CTN · control de campaña</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='14'>📈</text></svg>">
+<style>
+:root{
+  color-scheme: light;
+  --surface:#fcfcfb; --page:#f9f9f7;
+  --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --hair:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#0ca30c; --warning:#fab219; --serious:#ec835a; --critical:#d03b3b;
+  --good-ink:#006300;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --surface:#1a1a19; --page:#0d0d0d;
+    --ink:#fff; --ink-2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --hair:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good-ink:#0ca30c;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--page); color:var(--ink);
+  font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;
+  padding:14px 12px calc(34px + env(safe-area-inset-bottom));
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:880px;margin:0 auto}
+h1{font-size:17px;font-weight:600;margin:0 0 2px;letter-spacing:-.01em}
+h2{font-size:13px;font-weight:600;margin:0 0 2px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2)}
+.sub{color:var(--muted);font-size:12.5px;margin:0}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:14px;margin-top:12px}
+.card>h2+.sub{margin-bottom:10px}
+
+/* ---- cabecera ---- */
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.kpi.hero{grid-column:1/-1}
+@media(min-width:560px){
+  .kpis{grid-template-columns:1.35fr 1fr 1fr}
+  .kpi.hero{grid-column:auto}
+}
+.kpi{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:14px}
+.kpi .lbl{font-size:12.5px;color:var(--ink-2);margin-bottom:4px}
+.kpi .val{font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.05}
+.kpi.hero .val{font-size:52px}
+.kpi .note{font-size:12.5px;color:var(--muted);margin-top:5px}
+.delta{font-size:13px;font-weight:600;margin-top:5px}
+.delta.up{color:var(--critical)} .delta.down{color:var(--good-ink)}
+
+/* ---- semáforo ---- */
+.alert{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--hair)}
+.alert:first-of-type{border-top:0}
+.dot{width:12px;height:12px;border-radius:50%;flex:none;margin-top:4px}
+.alert .t{font-weight:600;font-size:14px}
+.alert .d{font-size:13px;color:var(--ink-2);margin-top:1px}
+.alert .badge{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);
+  border:1px solid var(--hair);border-radius:5px;padding:1px 5px;margin-left:6px;white-space:nowrap;vertical-align:2px}
+
+/* ---- gráficos ---- */
+.panel{margin-top:6px}
+.panel .cap{font-size:12.5px;color:var(--ink-2);margin:8px 0 1px;font-weight:600}
+svg{display:block;width:100%;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin:2px 0 8px}
+.legend span{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-2)}
+.legend i{width:11px;height:11px;border-radius:3px;flex:none}
+
+/* ---- tablas ---- */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:0 4px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 9px;text-align:right;white-space:nowrap;border-top:1px solid var(--hair)}
+th{font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);border-top:0}
+th:first-child,td:first-child{text-align:left;white-space:normal;min-width:150px}
+tbody tr:first-child td{font-weight:600}
+td .swatch{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px;vertical-align:0}
+.warn{color:var(--critical);font-weight:600}
+.nd{color:var(--muted)}
+
+.toggle{background:none;border:1px solid var(--hair);color:var(--ink-2);font:inherit;font-size:12.5px;
+  border-radius:7px;padding:4px 10px;cursor:pointer;margin-top:10px}
+.toggle:hover{border-color:var(--axis)}
+.hidden{display:none}
+
+#tip{position:fixed;z-index:9;pointer-events:none;opacity:0;transition:opacity .1s;
+  background:var(--surface);color:var(--ink);border:1px solid var(--hair);border-radius:9px;
+  padding:8px 10px;font-size:12.5px;line-height:1.5;box-shadow:0 6px 22px rgba(0,0,0,.16);max-width:250px}
+#tip b{font-weight:600}
+#tip .r{display:flex;justify-content:space-between;gap:14px}
+#tip i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px}
+
+footer{margin-top:16px;font-size:12px;color:var(--muted);line-height:1.7}
+footer a{color:var(--ink-2)}
+.err{border-color:var(--critical)}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <p class="sub">Cargando…</p>
+</div>
+<div id="tip"></div>
+
+<script>
+"use strict";
+
+const EUR = n => n.toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2}) + " €";
+const NUM = n => n.toLocaleString("es-ES");
+const PCT = (n,d=0) => (n*100).toLocaleString("es-ES",{minimumFractionDigits:d,maximumFractionDigits:d}) + " %";
+const ND  = '<span class="nd">n/d</span>';
+const eur = v => v==null ? ND : EUR(v);
+const pct = (v,d=1) => v==null ? ND : PCT(v,d);
+
+const MESES = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+function dmy(iso){ const [y,m,d] = iso.split("-").map(Number); return d + " " + MESES[m-1]; }
+function dmyLong(iso){ const [y,m,d] = iso.split("-").map(Number); return d + " de " + MESES[m-1] + ". " + y; }
+
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const SERIES = () => [css("--s1"), css("--s2"), css("--s3")];
+const STATUS = () => ({green:css("--good"), amber:css("--warning"), red:css("--critical")});
+
+const svgEl = (t,a={}) => { const e = document.createElementNS("http://www.w3.org/2000/svg",t);
+  for (const k in a) if (a[k]!=null) e.setAttribute(k,a[k]); return e; };
+
+// Tooltip -------------------------------------------------------------------
+const tip = document.getElementById("tip");
+function showTip(html, x, y){
+  tip.innerHTML = html; tip.style.opacity = 1;
+  const r = tip.getBoundingClientRect();
+  let left = x - r.width/2, top = y - r.height - 12;
+  left = Math.max(8, Math.min(left, innerWidth - r.width - 8));
+  if (top < 8) top = y + 16;
+  tip.style.left = left+"px"; tip.style.top = top+"px";
+}
+const hideTip = () => { tip.style.opacity = 0; };
+addEventListener("scroll", hideTip, {passive:true});
+
+// ---------------------------------------------------------------------------
+let DATA = null, COLOR = {}, SHORT = {}, PREFIJO = "";
+
+// Los tres reels se llaman «Reel — Dosier CTN — Algo». Repetir el tronco en
+// cada fila se come el ancho de la pantalla: se dice una vez y se quita.
+function commonPrefix(list){
+  if (list.length < 2) return "";
+  let p = list[0];
+  for (const s of list.slice(1)){
+    let i = 0; while (i < p.length && i < s.length && p[i] === s[i]) i++;
+    p = p.slice(0, i);
+    if (!p) return "";
+  }
+  const m = p.match(/^(.*[—–\-:·]\s)/);
+  return m ? m[1] : "";
+}
+
+async function load(){
+  const app = document.getElementById("app");
+  try{
+    const res = await fetch("data.json?v=" + Date.now(), {cache:"no-store"});
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    DATA = await res.json();
+  }catch(err){
+    app.innerHTML = '<div class="card err"><h2>No se han podido cargar los datos</h2>'
+      + '<p class="sub">' + String(err) + '</p>'
+      + '<p class="sub">Si acabas de desplegar, espera a que corra la actualización diaria.</p></div>';
+    return;
+  }
+  // El color sigue al anuncio, nunca a su posición en la tabla: si mañana otro
+  // reel es el más barato, cada uno conserva su color.
+  const ids = DATA.ads.map(a => a.ad_id).sort();
+  const pal = SERIES();
+  ids.forEach((id,i) => { COLOR[id] = pal[i % pal.length]; });
+
+  PREFIJO = commonPrefix(DATA.ads.map(a => a.ad_name));
+  DATA.ads.forEach(a => {
+    SHORT[a.ad_id] = (PREFIJO && a.ad_name.startsWith(PREFIJO))
+      ? a.ad_name.slice(PREFIJO.length) : a.ad_name;
+  });
+
+  render();
+  addEventListener("resize", () => { clearTimeout(window.__rz);
+    window.__rz = setTimeout(render, 180); }, {passive:true});
+}
+
+function render(){
+  const d = DATA;
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+
+  app.appendChild(header(d));
+  app.appendChild(kpis(d));
+  app.appendChild(alerts(d));
+  app.appendChild(seriesCard(d));
+  app.appendChild(tableCard(d, "ads"));
+  app.appendChild(tableCard(d, "adsets"));
+  app.appendChild(deliveryCard(d));
+  app.appendChild(footer(d));
+}
+
+const card = (title, sub) => {
+  const c = document.createElement("div"); c.className = "card";
+  if(title){ const h = document.createElement("h2"); h.textContent = title; c.appendChild(h); }
+  if(sub){ const p = document.createElement("p"); p.className = "sub"; p.textContent = sub; c.appendChild(p); }
+  return c;
+};
+
+// --- cabecera --------------------------------------------------------------
+function header(d){
+  const el = document.createElement("div");
+  el.innerHTML = '<h1>' + d.campaign.name + '</h1>'
+    + '<p class="sub">' + dmyLong(d.period.from) + ' – ' + dmyLong(d.period.to)
+    + ' · ' + NUM(d.daily.length) + ' días · ' + EUR(d.totals.spend) + ' invertidos</p>';
+  return el;
+}
+
+function kpis(d){
+  const g = document.createElement("div"); g.className = "kpis";
+
+  // Héroe: el CPL de los últimos 7 días. La tendencia manda sobre el acumulado.
+  const l7 = d.last7.cpl, p7 = d.prev7.cpl;
+  let delta = "";
+  if (l7 != null && p7 != null && p7 > 0){
+    const ch = (l7 - p7) / p7;
+    delta = '<div class="delta ' + (ch > 0 ? 'up' : 'down') + '">'
+      + (ch > 0 ? '▲' : '▼') + ' ' + PCT(Math.abs(ch),0)
+      + ' vs. semana anterior (' + EUR(p7) + ')</div>';
+  }
+  g.insertAdjacentHTML("beforeend",
+    '<div class="kpi hero"><div class="lbl">CPL últimos 7 días</div>'
+    + '<div class="val">' + eur(l7) + '</div>' + delta
+    + '<div class="note">' + dmy(d.windows.last7.from) + ' – ' + dmy(d.windows.last7.to)
+    + ' · ' + NUM(d.last7.leads) + ' leads · ' + EUR(d.last7.spend) + '</div></div>');
+
+  const y = d.yesterday;
+  g.insertAdjacentHTML("beforeend",
+    '<div class="kpi"><div class="lbl">CPL de ayer</div>'
+    + '<div class="val">' + (y ? eur(y.cpl) : ND) + '</div>'
+    + '<div class="note">' + (y
+        ? dmy(y.date) + ' · ' + NUM(y.leads) + ' leads · ' + EUR(y.spend)
+        : 'sin datos de ayer') + '</div></div>');
+
+  g.insertAdjacentHTML("beforeend",
+    '<div class="kpi"><div class="lbl">CPL global del periodo</div>'
+    + '<div class="val">' + eur(d.totals.cpl) + '</div>'
+    + '<div class="note">' + NUM(d.totals.leads) + ' leads · objetivo '
+    + EUR(d.target_cpl) + '</div></div>');
+  return g;
+}
+
+// --- semáforo --------------------------------------------------------------
+function alerts(d){
+  const c = card("Semáforo", null);
+  const st = STATUS();
+  const NOMBRE = {green:"ok", amber:"atención", red:"alerta"};
+  d.alerts.forEach(a => {
+    const row = document.createElement("div"); row.className = "alert";
+    // El color nunca va solo: cada fila lleva su etiqueta de estado en texto.
+    row.innerHTML = '<span class="dot" style="background:' + st[a.level] + '"></span>'
+      + '<span><span class="t">' + a.title
+      + '<span class="badge">' + NOMBRE[a.level] + '</span></span>'
+      + '<div class="d">' + a.detail + '</div></span>';
+    c.appendChild(row);
+  });
+  return c;
+}
+
+// --- serie temporal (pequeños múltiplos, un eje por panel) -----------------
+function seriesCard(d){
+  const c = card("Día a día", "Gasto, leads y CPL. Tres paneles con el mismo eje de fechas: mezclarlos en uno solo inventaría una correlación que no está en los datos.");
+  const host = document.createElement("div"); host.className = "panel";
+  c.appendChild(host);
+
+  const days = d.daily;
+  const W = Math.max(300, host.getBoundingClientRect().width || 320);
+
+  host.appendChild(mini(days, W, "spend", "Gasto diario", "col", css("--s1"), EUR));
+  host.appendChild(mini(days, W, "leads", "Leads diarios", "col", css("--s1"), NUM));
+  host.appendChild(mini(days, W, "cpl",   "CPL diario",    "line", css("--s1"), v=>EUR(v), d.target_cpl));
+
+  const btn = document.createElement("button");
+  btn.className = "toggle"; btn.textContent = "Ver los números";
+  const tb = dailyTable(d); tb.classList.add("hidden");
+  btn.onclick = () => { tb.classList.toggle("hidden");
+    btn.textContent = tb.classList.contains("hidden") ? "Ver los números" : "Ocultar los números"; };
+  c.appendChild(btn); c.appendChild(tb);
+  return c;
+}
+
+function mini(days, W, key, caption, kind, color, fmt, target){
+  const box = document.createElement("div");
+  const cap = document.createElement("div"); cap.className = "cap"; cap.textContent = caption;
+  box.appendChild(cap);
+
+  const H = 104, mL = 44, mR = 10, mT = 12, mB = 20;
+  const iw = W - mL - mR, ih = H - mT - mB;
+  const svg = svgEl("svg", {viewBox:`0 0 ${W} ${H}`, height:H,
+    role:"img", "aria-label":caption});
+
+  const vals = days.map(x => x[key]).filter(v => v != null);
+  const peak = Math.max(...vals, target != null ? target : 0, 0);
+  const {max, step} = scaleFor(peak, key === "leads");
+  const y = v => mT + ih - (v / max) * ih;
+  const bw = Math.min(24, (iw / days.length) * 0.62);
+  const cx = i => mL + (iw / days.length) * (i + 0.5);
+
+  // Rejilla + eje Y. Las marcas caen en los valores reales de la escala y se
+  // escriben con los decimales que hagan falta: una etiqueta redondeada sobre
+  // una línea que está en otro sitio es mentir.
+  [0, step, max].forEach(v => {
+    svg.appendChild(svgEl("line",{x1:mL, x2:mL+iw, y1:y(v), y2:y(v),
+      stroke: v===0 ? css("--axis") : css("--grid"), "stroke-width":1}));
+    const t = svgEl("text",{x:mL-7, y:y(v)+3.5, "text-anchor":"end",
+      fill:css("--muted"), "font-size":10, "font-variant-numeric":"tabular-nums"});
+    t.textContent = v.toLocaleString("es-ES",{maximumFractionDigits:2});
+    svg.appendChild(t);
+  });
+
+  if (kind === "col"){
+    days.forEach((row,i) => {
+      const v = row[key] || 0;
+      const h = Math.max(0, (v / max) * ih);
+      if (h <= 0) return;
+      const r = Math.min(4, h);   // extremo de dato redondeado, base cuadrada
+      const x = cx(i) - bw/2, yy = y(v);
+      const p = `M${x} ${yy+h} L${x} ${yy+r} Q${x} ${yy} ${x+r} ${yy}
+                 L${x+bw-r} ${yy} Q${x+bw} ${yy} ${x+bw} ${yy+r} L${x+bw} ${yy+h} Z`;
+      svg.appendChild(svgEl("path",{d:p, fill:color, opacity: row.partial ? .45 : 1}));
+    });
+  } else {
+    // línea: los días sin leads dejan hueco, que es la verdad (CPL no calculable)
+    let run = [];
+    const flush = () => {
+      if (run.length > 1){
+        svg.appendChild(svgEl("path",{d:"M" + run.map(p=>p[0]+" "+p[1]).join(" L"),
+          fill:"none", stroke:color, "stroke-width":2,
+          "stroke-linejoin":"round", "stroke-linecap":"round"}));
+      } else if (run.length === 1){
+        svg.appendChild(svgEl("circle",{cx:run[0][0], cy:run[0][1], r:2.5, fill:color}));
+      }
+      run = [];
+    };
+    days.forEach((row,i) => {
+      const v = row[key];
+      if (v == null){ flush(); return; }
+      run.push([cx(i), y(Math.min(v,max))]);
+    });
+    flush();
+    const last = days.filter(r => r[key] != null).pop();
+    if (last){
+      const i = days.indexOf(last);
+      svg.appendChild(svgEl("circle",{cx:cx(i), cy:y(Math.min(last[key],max)), r:4.5,
+        fill:color, stroke:css("--surface"), "stroke-width":2}));
+    }
+  }
+
+  if (target != null && target <= max){
+    svg.appendChild(svgEl("line",{x1:mL, x2:mL+iw, y1:y(target), y2:y(target),
+      stroke:css("--axis"), "stroke-width":1}));
+    // Halo del color de la superficie: la etiqueta cruza la línea de datos y
+    // tiene que seguir leyéndose sin empujar la geometría del panel.
+    const t = svgEl("text",{x:mL+3, y:y(target)-6, "text-anchor":"start",
+      fill:css("--muted"), "font-size":10,
+      stroke:css("--surface"), "stroke-width":3, "paint-order":"stroke"});
+    t.textContent = "objetivo " + EUR(target);
+    svg.appendChild(t);
+  }
+
+  // eje x: una de cada N fechas para que no se solapen
+  const cada = Math.max(1, Math.ceil(days.length / (W < 420 ? 5 : 9)));
+  days.forEach((row,i) => {
+    if (i % cada && i !== days.length-1) return;
+    const t = svgEl("text",{x:cx(i), y:H-6, "text-anchor":"middle",
+      fill:css("--muted"), "font-size":10});
+    t.textContent = dmy(row.date);
+    svg.appendChild(t);
+  });
+
+  // zonas de contacto anchas: en móvil el dedo no acierta una barra de 12px
+  days.forEach((row,i) => {
+    const hit = svgEl("rect",{x:cx(i) - (iw/days.length)/2, y:mT-6,
+      width:iw/days.length, height:ih+12, fill:"transparent", style:"cursor:pointer"});
+    const over = ev => {
+      const v = row[key];
+      showTip('<b>' + dmyLong(row.date) + (row.partial ? ' (hoy, incompleto)' : '') + '</b>'
+        + '<div class="r"><span>Gasto</span><span>' + EUR(row.spend) + '</span></div>'
+        + '<div class="r"><span>Leads</span><span>' + NUM(row.leads) + '</span></div>'
+        + '<div class="r"><span>CPL</span><span>' + eur(row.cpl) + '</span></div>',
+        ev.clientX, ev.clientY);
+    };
+    hit.addEventListener("mouseenter", over);
+    hit.addEventListener("mousemove", over);
+    hit.addEventListener("mouseleave", hideTip);
+    hit.addEventListener("touchstart", e => over(e.touches[0]), {passive:true});
+    svg.appendChild(hit);
+  });
+
+  box.appendChild(svg);
+  return box;
+}
+
+// Dos intervalos por eje, con el paso cogido de una escalera de valores
+// legibles. Devuelve el tope y el paso para que las etiquetas coincidan
+// exactamente con las líneas dibujadas.
+function scaleFor(peak, integer){
+  if (!(peak > 0)) return {max:1, step:0.5};
+  const half = peak / 2;
+  const mag = Math.pow(10, Math.floor(Math.log10(half)));
+  let step = mag * 10;
+  for (const k of [1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]){
+    if (half <= k * mag + 1e-9){ step = k * mag; break; }
+  }
+  if (integer) step = Math.max(1, Math.ceil(step));
+  return {max: step * 2, step};
+}
+
+function dailyTable(d){
+  const w = document.createElement("div"); w.className = "scroll";
+  let h = '<table><thead><tr><th>Día</th><th>Gasto</th><th>Leads</th><th>CPL</th>'
+        + '<th>Impr.</th><th>CTR</th></tr></thead><tbody>';
+  d.daily.slice().reverse().forEach(r => {
+    h += '<tr><td>' + dmy(r.date) + (r.partial ? ' <span class="nd">(hoy)</span>' : '')
+      + '</td><td>' + EUR(r.spend) + '</td><td>' + NUM(r.leads) + '</td><td>' + eur(r.cpl)
+      + '</td><td>' + NUM(r.impressions) + '</td><td>' + pct(r.ctr,2) + '</td></tr>';
+  });
+  w.innerHTML = h + '</tbody></table>';
+  return w;
+}
+
+// --- tablas por anuncio / conjunto -----------------------------------------
+function tableCard(d, which){
+  const isAds = which === "ads";
+  const rows = d[which];
+  const c = card(isAds ? "Por anuncio" : "Por conjunto",
+    "Ordenado por CPL de menor a mayor. La frecuencia es la real de los últimos 7 días, no la media de los diarios.");
+  const w = document.createElement("div"); w.className = "scroll";
+
+  let h = '<table><thead><tr><th>' + (isAds ? "Anuncio" : "Conjunto")
+    + '</th><th>Gasto</th><th>Leads</th><th>CPL</th><th>CTR</th><th>Frec. 7d</th></tr></thead><tbody>';
+  rows.forEach(r => {
+    const sw = isAds ? '<span class="swatch" style="background:' + COLOR[r.ad_id] + '"></span>' : '';
+    const nombre = isAds ? SHORT[r.ad_id] : r.adset_name;
+    const f = r.frequency_7d;
+    const fCls = (f != null && f > d.thresholds.freq_amber) ? ' class="warn"' : '';
+    h += '<tr><td>' + sw + nombre + '</td>'
+      + '<td>' + EUR(r.spend) + '</td><td>' + NUM(r.leads) + '</td>'
+      + '<td>' + eur(r.cpl) + '</td><td>' + pct(r.ctr,2) + '</td>'
+      + '<td' + fCls + '>' + (f != null ? f.toLocaleString("es-ES",{minimumFractionDigits:2}) : ND) + '</td></tr>';
+  });
+  w.innerHTML = h + '</tbody></table>';
+  c.appendChild(w);
+  return c;
+}
+
+// --- reparto de entrega ----------------------------------------------------
+function deliveryCard(d){
+  const lim = d.thresholds.concentration_red;
+  const c = card("Reparto de entrega",
+    "Qué porcentaje del gasto del conjunto se llevó cada anuncio, día a día. "
+    + "Los días marcados en rojo son aquellos en que un anuncio superó el "
+    + PCT(lim,0) + ": ahí Meta ha concentrado la entrega y los demás creativos se quedan sin datos.");
+
+  d.delivery.forEach(block => {
+    if (d.delivery.length > 1){
+      const h = document.createElement("div"); h.className = "cap";
+      h.textContent = block.adset_name; c.appendChild(h);
+    }
+    // Leyenda: la identidad nunca depende solo del color.
+    const lg = document.createElement("div"); lg.className = "legend";
+    block.ads.forEach(a => {
+      lg.insertAdjacentHTML("beforeend",
+        '<span><i style="background:' + COLOR[a.ad_id] + '"></i>' + SHORT[a.ad_id] + '</span>');
+    });
+    c.appendChild(lg);
+    c.appendChild(deliveryChart(block, d));
+  });
+
+  const btn = document.createElement("button");
+  btn.className = "toggle"; btn.textContent = "Ver los números";
+  const tb = deliveryTable(d); tb.classList.add("hidden");
+  btn.onclick = () => { tb.classList.toggle("hidden");
+    btn.textContent = tb.classList.contains("hidden") ? "Ver los números" : "Ocultar los números"; };
+  c.appendChild(btn); c.appendChild(tb);
+  return c;
+}
+
+function deliveryChart(block, d){
+  const host = document.createElement("div");
+  const W = Math.max(300, (document.querySelector(".wrap").getBoundingClientRect().width || 340) - 32);
+  const days = block.days;
+  const H = 168, mT = 16, mB = 34, mL = 4, mR = 4;
+  const ih = H - mT - mB, iw = W - mL - mR;
+  const slot = iw / days.length;
+  const bw = Math.min(24, slot * 0.66);
+  const GAP = 2;  // el separador es superficie, no un borde dibujado
+
+  const svg = svgEl("svg",{viewBox:`0 0 ${W} ${H}`, height:H,
+    role:"img","aria-label":"Reparto diario del gasto entre anuncios"});
+
+  // Un porcentaje escrito sobre cada día concentrado se solapa con el vecino y
+  // no lo lee nadie. La marca roja bajo el eje da la señal en todos; el número
+  // se escribe solo en el más reciente, que es el que importa hoy.
+  let ultimoConc = -1;
+  days.forEach((day,i) => { if (day.concentrated) ultimoConc = i; });
+  const cabeElNumero = slot >= 26;
+
+  days.forEach((day,i) => {
+    const x = mL + slot*i + (slot - bw)/2;
+    if (day.no_delivery){
+      svg.appendChild(svgEl("line",{x1:x, x2:x+bw, y1:mT+ih, y2:mT+ih,
+        stroke:css("--axis"), "stroke-width":2}));
+      return;
+    }
+    const parts = day.shares.filter(s => s.pct != null && s.pct > 0)
+                            .sort((a,b) => b.pct - a.pct);
+    let acc = 0;
+    parts.forEach((s,k) => {
+      const h = s.pct * ih;
+      const top = mT + acc;
+      const drawn = Math.max(1, h - (k < parts.length-1 ? GAP : 0));
+      const r = Math.min(4, drawn/2);
+      const isTop = k === 0;
+      const p = isTop
+        ? `M${x} ${top+drawn} L${x} ${top+r} Q${x} ${top} ${x+r} ${top}
+           L${x+bw-r} ${top} Q${x+bw} ${top} ${x+bw} ${top+r} L${x+bw} ${top+drawn} Z`
+        : `M${x} ${top} h${bw} v${drawn} h${-bw} Z`;
+      // Días de gasto insignificante: se dibujan, pero apagados. El reparto es
+      // real y a la vez no significa nada, y eso tiene que verse.
+      svg.appendChild(svgEl("path",{d:p, fill:COLOR[s.ad_id],
+        opacity: day.negligible ? .35 : 1}));
+      acc += h;
+    });
+
+    // Día concentrado: marca roja bajo el eje + porcentaje escrito.
+    // El color no es el único canal — el número va siempre.
+    if (day.concentrated){
+      svg.appendChild(svgEl("rect",{x:x, y:mT+ih+4, width:bw, height:3,
+        rx:1.5, fill:css("--critical")}));
+      if (i === ultimoConc || cabeElNumero){
+        const t = svgEl("text",{x:x+bw/2, y:mT-5, "text-anchor":"middle",
+          fill:css("--critical"), "font-size":10, "font-weight":700,
+          stroke:css("--surface"), "stroke-width":3, "paint-order":"stroke"});
+        t.textContent = Math.round(day.top_pct*100) + " %";
+        svg.appendChild(t);
+      }
+    }
+
+    const lbl = svgEl("text",{x:x+bw/2, y:H-16, "text-anchor":"middle",
+      fill: day.concentrated ? css("--critical") : css("--muted"), "font-size":9.5});
+    lbl.textContent = String(Number(day.date.slice(8,10)));
+    svg.appendChild(lbl);
+
+    const hit = svgEl("rect",{x:mL+slot*i, y:mT-8, width:slot, height:ih+16,
+      fill:"transparent", style:"cursor:pointer"});
+    const over = ev => {
+      const hoy = day.date === DATA.windows.today;
+      let html = '<b>' + dmyLong(day.date) + (hoy ? ' (hoy, incompleto)' : '') + '</b>'
+        + '<div class="r"><span>Gasto del conjunto</span><span>' + EUR(day.total) + '</span></div>';
+      day.shares.slice().sort((a,b) => (b.pct||0)-(a.pct||0)).forEach(s => {
+        html += '<div class="r"><span><i style="background:' + COLOR[s.ad_id] + '"></i>'
+          + SHORT[s.ad_id] + '</span><span>'
+          + (s.pct==null ? "—" : PCT(s.pct,0)) + '</span></div>';
+      });
+      if (day.concentrated) html += '<div style="color:' + css("--critical")
+        + ';margin-top:5px;font-weight:600">Entrega concentrada</div>';
+      else if (day.negligible) html += '<div class="nd" style="margin-top:5px">'
+        + 'Gasto insignificante: el reparto de este día no dice nada.</div>';
+      showTip(html, ev.clientX, ev.clientY);
+    };
+    hit.addEventListener("mouseenter", over);
+    hit.addEventListener("mousemove", over);
+    hit.addEventListener("mouseleave", hideTip);
+    hit.addEventListener("touchstart", e => over(e.touches[0]), {passive:true});
+    svg.appendChild(hit);
+  });
+
+  svg.appendChild(svgEl("line",{x1:mL, x2:W-mR, y1:mT+ih, y2:mT+ih,
+    stroke:css("--axis"), "stroke-width":1}));
+  const mes = svgEl("text",{x:mL, y:H-3, fill:css("--muted"), "font-size":9.5});
+  mes.textContent = "día del mes · " + dmy(days[0].date) + " a " + dmy(days[days.length-1].date);
+  svg.appendChild(mes);
+
+  host.appendChild(svg);
+  return host;
+}
+
+function deliveryTable(d){
+  const w = document.createElement("div"); w.className = "scroll";
+  const block = d.delivery[0];
+  let h = '<table><thead><tr><th>Día</th><th>Gasto conj.</th>';
+  block.ads.forEach(a => { h += '<th>' + SHORT[a.ad_id] + '</th>'; });
+  h += '<th>Máx.</th></tr></thead><tbody>';
+  block.days.slice().reverse().forEach(day => {
+    h += '<tr><td>' + dmy(day.date) + '</td><td>' + EUR(day.total) + '</td>';
+    block.ads.forEach(a => {
+      const s = day.shares.find(x => x.ad_id === a.ad_id);
+      h += '<td>' + (!s || s.pct == null ? ND : PCT(s.pct,0)) + '</td>';
+    });
+    h += '<td' + (day.concentrated ? ' class="warn"' : '') + '>'
+      + (day.top_pct == null ? ND : PCT(day.top_pct,0))
+      + (day.concentrated ? ' ⚠' : '') + '</td></tr>';
+  });
+  w.innerHTML = h + '</tbody></table>';
+  return w;
+}
+
+// --- pie -------------------------------------------------------------------
+function footer(d){
+  const f = document.createElement("footer");
+  const gen = new Date(d.generated_at);
+  const url = "https://adsmanager.facebook.com/adsmanager/manage/ads?act="
+    + d.account_id + "&selected_campaign_ids=" + d.campaign.id;
+  f.innerHTML = "Datos de Windsor.ai (conector facebook), cuenta " + d.account_id
+    + ". Actualizado el " + gen.toLocaleString("es-ES",{dateStyle:"long",timeStyle:"short"})
+    + ".<br>El CPL se calcula como gasto ÷ leads; los días sin leads aparecen como «n/d», "
+    + "no como cero. Hoy va incompleto hasta el cierre del día.<br>"
+    + '<a href="' + url + '" target="_blank" rel="noopener">Abrir la campaña en Meta Ads Manager →</a>';
+  return f;
+}
+
+load();
+</script>
+</body>
+</html>
