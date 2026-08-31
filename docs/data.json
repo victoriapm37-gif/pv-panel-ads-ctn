@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-30T13:57:15+02:00",
+ "generated_at": "2026-08-31T15:56:16+02:00",
  "campaign": {
   "id": "52506066958996",
   "name": "Descarga Dossier CTN - Prospecting España"
@@ -17,68 +17,68 @@
  },
  "period": {
   "from": "2026-07-31",
-  "to": "2026-08-30"
+  "to": "2026-08-31"
  },
  "windows": {
   "last7": {
-   "from": "2026-08-23",
-   "to": "2026-08-29"
+   "from": "2026-08-24",
+   "to": "2026-08-30"
   },
   "prev7": {
-   "from": "2026-08-16",
-   "to": "2026-08-22"
+   "from": "2026-08-17",
+   "to": "2026-08-23"
   },
-  "yesterday": "2026-08-29",
-  "today": "2026-08-30"
+  "yesterday": "2026-08-30",
+  "today": "2026-08-31"
  },
  "totals": {
-  "spend": 640.5,
-  "leads": 356,
-  "impressions": 81032,
-  "clicks": 2639,
-  "link_clicks": 1608,
-  "reach": 68743.0,
-  "lpv": 875,
-  "cpl": 1.7992,
-  "ctr": 0.03256738078783691,
-  "link_ctr": 0.019844012242077203
+  "spend": 660.58,
+  "leads": 360,
+  "impressions": 84184,
+  "clicks": 2731,
+  "link_clicks": 1664,
+  "reach": 71246.0,
+  "lpv": 890,
+  "cpl": 1.8349,
+  "ctr": 0.032440843865817734,
+  "link_ctr": 0.01976622636130381
  },
  "last7": {
-  "spend": 196.49,
-  "leads": 98,
-  "impressions": 20208,
-  "clicks": 743,
-  "link_clicks": 459,
-  "reach": 17366.0,
-  "lpv": 129,
-  "cpl": 2.005,
-  "ctr": 0.036767616785431514,
-  "link_ctr": 0.02271377672209026
+  "spend": 206.27,
+  "leads": 93,
+  "impressions": 22453,
+  "clicks": 802,
+  "link_clicks": 483,
+  "reach": 19106.0,
+  "lpv": 134,
+  "cpl": 2.218,
+  "ctr": 0.035719057586959424,
+  "link_ctr": 0.02151160201309402
  },
  "prev7": {
-  "spend": 159.29,
-  "leads": 58,
-  "impressions": 18379,
-  "clicks": 625,
-  "link_clicks": 371,
-  "reach": 15476.0,
-  "lpv": 112,
-  "cpl": 2.7464,
-  "ctr": 0.0340062027313782,
-  "link_ctr": 0.0201860819413461
+  "spend": 163.68,
+  "leads": 70,
+  "impressions": 17408,
+  "clicks": 639,
+  "link_clicks": 388,
+  "reach": 14685.0,
+  "lpv": 118,
+  "cpl": 2.3383,
+  "ctr": 0.03670726102941176,
+  "link_ctr": 0.02228860294117647
  },
  "yesterday": {
-  "spend": 27.0,
-  "leads": 19,
-  "impressions": 3338,
-  "clicks": 97,
-  "link_clicks": 57,
-  "reach": 2918.0,
-  "lpv": 23,
-  "cpl": 1.4211,
-  "ctr": 0.029059316956261235,
-  "link_ctr": 0.0170760934691432,
-  "date": "2026-08-29",
+  "spend": 31.5,
+  "leads": 15,
+  "impressions": 4216,
+  "clicks": 142,
+  "link_clicks": 77,
+  "reach": 3482.0,
+  "lpv": 25,
+  "cpl": 2.1,
+  "ctr": 0.033681214421252374,
+  "link_ctr": 0.018263757115749527,
+  "date": "2026-08-30",
   "partial": false
  },
  "daily": [
@@ -489,68 +489,82 @@
    "partial": false
   },
   {
-   "spend": 27.0,
+   "spend": 27.01,
    "leads": 19,
-   "impressions": 3338,
+   "impressions": 3340,
    "clicks": 97,
    "link_clicks": 57,
-   "reach": 2918.0,
+   "reach": 2919.0,
    "lpv": 23,
-   "cpl": 1.4211,
-   "ctr": 0.029059316956261235,
-   "link_ctr": 0.0170760934691432,
+   "cpl": 1.4216,
+   "ctr": 0.02904191616766467,
+   "link_ctr": 0.017065868263473054,
    "date": "2026-08-29",
    "partial": false
   },
   {
-   "spend": 18.57,
-   "leads": 13,
-   "impressions": 2244,
-   "clicks": 75,
-   "link_clicks": 41,
-   "reach": 2049.0,
-   "lpv": 15,
-   "cpl": 1.4285,
-   "ctr": 0.03342245989304813,
-   "link_ctr": 0.018270944741532978,
+   "spend": 31.5,
+   "leads": 15,
+   "impressions": 4216,
+   "clicks": 142,
+   "link_clicks": 77,
+   "reach": 3482.0,
+   "lpv": 25,
+   "cpl": 2.1,
+   "ctr": 0.033681214421252374,
+   "link_ctr": 0.018263757115749527,
    "date": "2026-08-30",
+   "partial": false
+  },
+  {
+   "spend": 7.14,
+   "leads": 2,
+   "impressions": 1178,
+   "clicks": 25,
+   "link_clicks": 20,
+   "reach": 1069.0,
+   "lpv": 5,
+   "cpl": 3.57,
+   "ctr": 0.021222410865874362,
+   "link_ctr": 0.01697792869269949,
+   "date": "2026-08-31",
    "partial": true
   }
  ],
  "ads": [
   {
-   "spend": 252.21,
-   "leads": 173,
-   "impressions": 37668,
-   "clicks": 1038,
-   "link_clicks": 647,
-   "reach": 32226.0,
-   "lpv": 469,
-   "cpl": 1.4579,
-   "ctr": 0.027556546670914304,
-   "link_ctr": 0.01717638313688011,
+   "spend": 267.76,
+   "leads": 177,
+   "impressions": 40295,
+   "clicks": 1109,
+   "link_clicks": 689,
+   "reach": 34283.0,
+   "lpv": 480,
+   "cpl": 1.5128,
+   "ctr": 0.02752202506514456,
+   "link_ctr": 0.017098895644620922,
    "ad_id": "52507106790796",
    "ad_name": "Reel — Dosier CTN — Temario (A2)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.33
+   "frequency_7d": 1.52
   },
   {
-   "spend": 252.03,
+   "spend": 255.89,
    "leads": 138,
-   "impressions": 31844,
-   "clicks": 1033,
-   "link_clicks": 642,
-   "reach": 26431.0,
-   "lpv": 327,
-   "cpl": 1.8263,
-   "ctr": 0.03243939203617636,
-   "link_ctr": 0.020160783821128,
+   "impressions": 32281,
+   "clicks": 1053,
+   "link_clicks": 656,
+   "reach": 26800.0,
+   "lpv": 331,
+   "cpl": 1.8543,
+   "ctr": 0.032619807316997616,
+   "link_ctr": 0.020321551376970972,
    "ad_id": "52507106790996",
    "ad_name": "Reel — Dosier CTN — Orden (A2)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.66
+   "frequency_7d": 1.64
   },
   {
    "spend": 119.96,
@@ -567,24 +581,24 @@
    "ad_name": "Reel06_miedos · CTN",
    "adset_name": "AS2 · Broad Advantage+ ES · Lote R05-R06",
    "adset_id": "52512550901796",
-   "frequency_7d": 1.5
+   "frequency_7d": 1.45
   },
   {
-   "spend": 11.69,
+   "spend": 12.36,
    "leads": 3,
-   "impressions": 1258,
-   "clicks": 37,
+   "impressions": 1346,
+   "clicks": 38,
    "link_clicks": 17,
-   "reach": 1107.0,
+   "reach": 1184.0,
    "lpv": 7,
-   "cpl": 3.8967,
-   "ctr": 0.029411764705882353,
-   "link_ctr": 0.013513513513513514,
+   "cpl": 4.12,
+   "ctr": 0.02823179791976226,
+   "link_ctr": 0.01263001485884101,
    "ad_id": "52506066959196",
    "ad_name": "Reel — Dosier CTN — Por dentro (A1)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.31
+   "frequency_7d": 1.37
   },
   {
    "spend": 4.61,
@@ -606,20 +620,20 @@
  ],
  "adsets": [
   {
-   "spend": 515.93,
-   "leads": 314,
-   "impressions": 70770,
-   "clicks": 2108,
-   "link_clicks": 1306,
-   "reach": 59764.0,
-   "lpv": 803,
-   "cpl": 1.6431,
-   "ctr": 0.029786632753991803,
-   "link_ctr": 0.018454147237530028,
+   "spend": 536.01,
+   "leads": 318,
+   "impressions": 73922,
+   "clicks": 2200,
+   "link_clicks": 1362,
+   "reach": 62267.0,
+   "lpv": 818,
+   "cpl": 1.6856,
+   "ctr": 0.02976109953735018,
+   "link_ctr": 0.018424826168123156,
    "adset_id": "52506066959396",
    "adset_name": "AS1 — Broad Advantage+ España",
-   "frequency_7d": 1.66,
-   "leads_7d": 72
+   "frequency_7d": 1.64,
+   "leads_7d": 74
   },
   {
    "spend": 124.57,
@@ -634,8 +648,8 @@
    "link_ctr": 0.029428961216137205,
    "adset_id": "52512550901796",
    "adset_name": "AS2 · Broad Advantage+ ES · Lote R05-R06",
-   "frequency_7d": 1.5,
-   "leads_7d": 26
+   "frequency_7d": 1.45,
+   "leads_7d": 19
   }
  ],
  "delivery": [
@@ -1471,56 +1485,84 @@
     },
     {
      "date": "2026-08-29",
-     "total": 27.0,
+     "total": 27.01,
      "shares": [
       {
        "ad_id": "52507106790796",
        "ad_name": "Reel — Dosier CTN — Temario (A2)",
-       "spend": 18.31,
-       "pct": 0.6781481481481481
+       "spend": 18.32,
+       "pct": 0.6782673084042947
       },
       {
        "ad_id": "52507106790996",
        "ad_name": "Reel — Dosier CTN — Orden (A2)",
        "spend": 7.33,
-       "pct": 0.2714814814814815
+       "pct": 0.271380970011107
       },
       {
        "ad_id": "52506066959196",
        "ad_name": "Reel — Dosier CTN — Por dentro (A1)",
        "spend": 1.36,
-       "pct": 0.05037037037037037
+       "pct": 0.0503517215845983
       }
      ],
-     "top_pct": 0.6781481481481481,
+     "top_pct": 0.6782673084042947,
      "concentrated": false,
      "no_delivery": false,
      "negligible": false
     },
     {
      "date": "2026-08-30",
-     "total": 18.57,
+     "total": 31.5,
      "shares": [
       {
        "ad_id": "52507106790796",
        "ad_name": "Reel — Dosier CTN — Temario (A2)",
-       "spend": 13.87,
-       "pct": 0.7469036079698439
+       "spend": 23.72,
+       "pct": 0.753015873015873
       },
       {
        "ad_id": "52507106790996",
        "ad_name": "Reel — Dosier CTN — Orden (A2)",
-       "spend": 4.05,
-       "pct": 0.21809369951534735
+       "spend": 6.61,
+       "pct": 0.20984126984126986
       },
       {
        "ad_id": "52506066959196",
        "ad_name": "Reel — Dosier CTN — Por dentro (A1)",
-       "spend": 0.65,
-       "pct": 0.035002692514808836
+       "spend": 1.17,
+       "pct": 0.03714285714285714
       }
      ],
-     "top_pct": 0.7469036079698439,
+     "top_pct": 0.753015873015873,
+     "concentrated": false,
+     "no_delivery": false,
+     "negligible": false
+    },
+    {
+     "date": "2026-08-31",
+     "total": 7.14,
+     "shares": [
+      {
+       "ad_id": "52507106790796",
+       "ad_name": "Reel — Dosier CTN — Temario (A2)",
+       "spend": 5.69,
+       "pct": 0.7969187675070027
+      },
+      {
+       "ad_id": "52507106790996",
+       "ad_name": "Reel — Dosier CTN — Orden (A2)",
+       "spend": 1.3,
+       "pct": 0.18207282913165265
+      },
+      {
+       "ad_id": "52506066959196",
+       "ad_name": "Reel — Dosier CTN — Por dentro (A1)",
+       "spend": 0.15,
+       "pct": 0.021008403361344536
+      }
+     ],
+     "top_pct": 0.7969187675070027,
      "concentrated": false,
      "no_delivery": false,
      "negligible": false
@@ -2222,6 +2264,28 @@
      "concentrated": false,
      "no_delivery": true,
      "negligible": false
+    },
+    {
+     "date": "2026-08-31",
+     "total": 0.0,
+     "shares": [
+      {
+       "ad_id": "52512550901396",
+       "ad_name": "Reel06_miedos · CTN",
+       "spend": 0.0,
+       "pct": null
+      },
+      {
+       "ad_id": "52512550901596",
+       "ad_name": "Reel05_salidas · CTN",
+       "spend": 0.0,
+       "pct": null
+      }
+     ],
+     "top_pct": null,
+     "concentrated": false,
+     "no_delivery": true,
+     "negligible": false
     }
    ]
   }
@@ -2230,32 +2294,32 @@
   {
    "level": "amber",
    "key": "cpl",
-   "title": "CPL de 7 días en 2,00 €",
+   "title": "CPL de 7 días en 2,22 €",
    "detail": "Por encima de 2,00 €. El objetivo es 1,43 €."
   },
   {
    "level": "green",
    "key": "frecuencia",
    "title": "Frecuencia bajo control",
-   "detail": "Máximo de 1,66 en 7 días, con el límite en 4."
+   "detail": "Máximo de 1,64 en 7 días, con el límite en 4."
   },
   {
    "level": "green",
    "key": "ctr",
-   "title": "El CTR sube un 8 %",
-   "detail": "Del 3,40 % al 3,68 % respecto a la semana anterior."
+   "title": "El CTR baja un 3 %",
+   "detail": "Del 3,67 % al 3,57 % respecto a la semana anterior."
   },
   {
    "level": "amber",
    "key": "aprendizaje",
    "title": "Aprendizaje limitado",
-   "detail": "1 conjunto(s) por debajo de 50 conversiones en 7 días. El más bajo es AS2 · Broad Advantage+ ES · Lote R05-R06, con 26."
+   "detail": "1 conjunto(s) por debajo de 50 conversiones en 7 días. El más bajo es AS2 · Broad Advantage+ ES · Lote R05-R06, con 19."
   },
   {
    "level": "red",
    "key": "entrega",
    "title": "Meta concentra la entrega",
-   "detail": "9 de los últimos 7 días con un anuncio por encima del 80 % del gasto de su conjunto. El último, el 27 de ago: «Reel06_miedos · CTN» se llevó el 97 %. Los demás creativos se quedan sin datos.",
+   "detail": "7 de los últimos 7 días con un anuncio por encima del 80 % del gasto de su conjunto. El último, el 27 de ago: «Reel06_miedos · CTN» se llevó el 97 %. Los demás creativos se quedan sin datos.",
    "ads": [
     "Reel — Dosier CTN — Orden (A2)",
     "Reel06_miedos · CTN"
