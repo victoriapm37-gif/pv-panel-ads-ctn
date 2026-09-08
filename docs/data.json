@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T14:38:07+02:00",
+ "generated_at": "2026-09-08T13:22:52+02:00",
  "campaign": {
   "id": "52506066958996",
   "name": "Descarga Dossier CTN - Prospecting España"
@@ -21,64 +21,64 @@
  },
  "windows": {
   "last7": {
-   "from": "2026-08-31",
-   "to": "2026-09-06"
+   "from": "2026-09-01",
+   "to": "2026-09-07"
   },
   "prev7": {
-   "from": "2026-08-24",
-   "to": "2026-08-30"
+   "from": "2026-08-25",
+   "to": "2026-08-31"
   },
-  "yesterday": "2026-09-06",
-  "today": "2026-09-07"
+  "yesterday": "2026-09-07",
+  "today": "2026-09-08"
  },
  "totals": {
-  "spend": 762.17,
+  "spend": 762.38,
   "leads": 444,
-  "impressions": 97637,
+  "impressions": 97655,
   "clicks": 3239,
   "link_clicks": 1997,
-  "reach": 82909.0,
+  "reach": 82928.0,
   "lpv": 1009,
-  "cpl": 1.7166,
-  "ctr": 0.03317389923901799,
-  "link_ctr": 0.020453311756813503
+  "cpl": 1.7171,
+  "ctr": 0.03316778454764221,
+  "link_ctr": 0.020449541754134454
  },
  "last7": {
-  "spend": 103.71,
-  "leads": 83,
-  "impressions": 13944,
-  "clicks": 509,
-  "link_clicks": 337,
-  "reach": 12082.0,
-  "lpv": 118,
-  "cpl": 1.2495,
-  "ctr": 0.03650315547905909,
-  "link_ctr": 0.02416810097532989
+  "spend": 92.23,
+  "leads": 74,
+  "impressions": 12052,
+  "clicks": 468,
+  "link_clicks": 309,
+  "reach": 10493.0,
+  "lpv": 107,
+  "cpl": 1.2464,
+  "ctr": 0.03883172917358115,
+  "link_ctr": 0.02563889810819781
  },
  "prev7": {
-  "spend": 206.32,
-  "leads": 93,
-  "impressions": 22457,
-  "clicks": 802,
-  "link_clicks": 483,
-  "reach": 19107.0,
-  "lpv": 134,
-  "cpl": 2.2185,
-  "ctr": 0.03571269537338024,
-  "link_ctr": 0.021507770405664157
+  "spend": 201.58,
+  "leads": 94,
+  "impressions": 22688,
+  "clicks": 777,
+  "link_clicks": 467,
+  "reach": 19384.0,
+  "lpv": 138,
+  "cpl": 2.1445,
+  "ctr": 0.034247179125528916,
+  "link_ctr": 0.020583568406205923
  },
  "yesterday": {
-  "spend": 16.04,
-  "leads": 15,
-  "impressions": 2139,
-  "clicks": 88,
-  "link_clicks": 65,
-  "reach": 1791.0,
-  "lpv": 22,
-  "cpl": 1.0693,
-  "ctr": 0.04114071996259935,
-  "link_ctr": 0.030388031790556335,
-  "date": "2026-09-06",
+  "spend": 5.18,
+  "leads": 3,
+  "impressions": 701,
+  "clicks": 24,
+  "link_clicks": 16,
+  "reach": 668.0,
+  "lpv": 6,
+  "cpl": 1.7267,
+  "ctr": 0.034236804564907276,
+  "link_ctr": 0.02282453637660485,
+  "date": "2026-09-07",
   "partial": false
  },
  "daily": [
@@ -615,37 +615,37 @@
    "partial": false
   },
   {
-   "spend": 4.97,
+   "spend": 5.18,
    "leads": 3,
-   "impressions": 683,
+   "impressions": 701,
    "clicks": 24,
    "link_clicks": 16,
-   "reach": 649.0,
+   "reach": 668.0,
    "lpv": 6,
-   "cpl": 1.6567,
-   "ctr": 0.03513909224011713,
-   "link_ctr": 0.02342606149341142,
+   "cpl": 1.7267,
+   "ctr": 0.034236804564907276,
+   "link_ctr": 0.02282453637660485,
    "date": "2026-09-07",
-   "partial": true
+   "partial": false
   }
  ],
  "ads": [
   {
-   "spend": 347.53,
+   "spend": 347.74,
    "leads": 248,
-   "impressions": 51455,
+   "impressions": 51473,
    "clicks": 1530,
    "link_clicks": 960,
-   "reach": 43892.0,
+   "reach": 43911.0,
    "lpv": 578,
-   "cpl": 1.4013,
-   "ctr": 0.029734719657953552,
-   "link_ctr": 0.018657079001068895,
+   "cpl": 1.4022,
+   "ctr": 0.029724321488935945,
+   "link_ctr": 0.018650554659724514,
    "ad_id": "52507106790796",
    "ad_name": "Reel — Dosier CTN — Temario (A2)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.69
+   "frequency_7d": 1.67
   },
   {
    "spend": 275.82,
@@ -662,7 +662,7 @@
    "ad_name": "Reel — Dosier CTN — Orden (A2)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.47
+   "frequency_7d": 1.48
   },
   {
    "spend": 119.96,
@@ -696,7 +696,7 @@
    "ad_name": "Reel — Dosier CTN — Por dentro (A1)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.14
+   "frequency_7d": 1.08
   },
   {
    "spend": 4.61,
@@ -718,20 +718,20 @@
  ],
  "adsets": [
   {
-   "spend": 637.6,
+   "spend": 637.81,
    "leads": 402,
-   "impressions": 87375,
+   "impressions": 87393,
    "clicks": 2708,
    "link_clicks": 1695,
-   "reach": 73930.0,
+   "reach": 73949.0,
    "lpv": 937,
-   "cpl": 1.5861,
-   "ctr": 0.030992846924177395,
-   "link_ctr": 0.019399141630901288,
+   "cpl": 1.5866,
+   "ctr": 0.030986463446729142,
+   "link_ctr": 0.019395146064330095,
    "adset_id": "52506066959396",
    "adset_name": "AS1 — Broad Advantage+ España",
-   "frequency_7d": 1.69,
-   "leads_7d": 83
+   "frequency_7d": 1.67,
+   "leads_7d": 74
   },
   {
    "spend": 124.57,
@@ -1835,19 +1835,19 @@
     },
     {
      "date": "2026-09-07",
-     "total": 4.97,
+     "total": 5.18,
      "shares": [
       {
        "ad_id": "52507106790796",
        "ad_name": "Reel — Dosier CTN — Temario (A2)",
-       "spend": 4.19,
-       "pct": 0.8430583501006036
+       "spend": 4.4,
+       "pct": 0.8494208494208494
       },
       {
        "ad_id": "52507106790996",
        "ad_name": "Reel — Dosier CTN — Orden (A2)",
        "spend": 0.78,
-       "pct": 0.15694164989939635
+       "pct": 0.15057915057915056
       },
       {
        "ad_id": "52506066959196",
@@ -1856,7 +1856,7 @@
        "pct": 0.0
       }
      ],
-     "top_pct": 0.8430583501006036,
+     "top_pct": 0.8494208494208494,
      "concentrated": true,
      "no_delivery": false,
      "negligible": false
@@ -2749,13 +2749,13 @@
    "level": "green",
    "key": "frecuencia",
    "title": "Frecuencia bajo control",
-   "detail": "Máximo de 1,69 en 7 días, con el límite en 4."
+   "detail": "Máximo de 1,67 en 7 días, con el límite en 4."
   },
   {
    "level": "green",
    "key": "ctr",
-   "title": "El CTR sube un 2 %",
-   "detail": "Del 3,57 % al 3,65 % respecto a la semana anterior."
+   "title": "El CTR sube un 13 %",
+   "detail": "Del 3,42 % al 3,88 % respecto a la semana anterior."
   },
   {
    "level": "amber",
@@ -2767,7 +2767,7 @@
    "level": "amber",
    "key": "entrega",
    "title": "Meta concentra la entrega",
-   "detail": "2 de los últimos 7 días con un anuncio por encima del 80 % del gasto de su conjunto. El último, el 2 de sep: «Reel — Dosier CTN — Temario (A2)» se llevó el 82 %. Los demás creativos se quedan sin datos.",
+   "detail": "2 de los últimos 7 días con un anuncio por encima del 80 % del gasto de su conjunto. El último, el 7 de sep: «Reel — Dosier CTN — Temario (A2)» se llevó el 85 %. Los demás creativos se quedan sin datos.",
    "ads": [
     "Reel — Dosier CTN — Temario (A2)"
    ]
