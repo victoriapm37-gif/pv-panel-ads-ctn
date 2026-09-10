@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T13:27:08+02:00",
+ "generated_at": "2026-09-10T13:23:25+02:00",
  "campaign": {
   "id": "52506066958996",
   "name": "Descarga Dossier CTN - Prospecting España"
@@ -21,15 +21,15 @@
  },
  "windows": {
   "last7": {
-   "from": "2026-09-02",
-   "to": "2026-09-08"
+   "from": "2026-09-03",
+   "to": "2026-09-09"
   },
   "prev7": {
-   "from": "2026-08-26",
-   "to": "2026-09-01"
+   "from": "2026-08-27",
+   "to": "2026-09-02"
   },
-  "yesterday": "2026-09-08",
-  "today": "2026-09-09"
+  "yesterday": "2026-09-09",
+  "today": "2026-09-10"
  },
  "totals": {
   "spend": 762.38,
@@ -44,43 +44,30 @@
   "link_ctr": 0.020449541754134454
  },
  "last7": {
-  "spend": 75.66,
-  "leads": 62,
-  "impressions": 10074,
-  "clicks": 388,
-  "link_clicks": 260,
-  "reach": 8734.0,
-  "lpv": 88,
-  "cpl": 1.2203,
-  "ctr": 0.038514989080802066,
-  "link_ctr": 0.025809013301568394
+  "spend": 59.67,
+  "leads": 45,
+  "impressions": 7973,
+  "clicks": 296,
+  "link_clicks": 204,
+  "reach": 6935.0,
+  "lpv": 68,
+  "cpl": 1.326,
+  "ctr": 0.037125297880346166,
+  "link_ctr": 0.0255863539445629
  },
  "prev7": {
-  "spend": 182.52,
-  "leads": 90,
-  "impressions": 20939,
-  "clicks": 725,
-  "link_clicks": 429,
-  "reach": 18114.0,
-  "lpv": 132,
-  "cpl": 2.028,
-  "ctr": 0.03462438511867807,
-  "link_ctr": 0.02048808443574192
+  "spend": 171.4,
+  "leads": 103,
+  "impressions": 20764,
+  "clicks": 701,
+  "link_clicks": 412,
+  "reach": 17975.0,
+  "lpv": 136,
+  "cpl": 1.6641,
+  "ctr": 0.033760354459641685,
+  "link_ctr": 0.01984203429011751
  },
- "yesterday": {
-  "spend": 0.0,
-  "leads": 0,
-  "impressions": 0,
-  "clicks": 0,
-  "link_clicks": 0,
-  "reach": 0.0,
-  "lpv": 0,
-  "cpl": null,
-  "ctr": null,
-  "link_ctr": null,
-  "date": "2026-09-08",
-  "partial": false
- },
+ "yesterday": null,
  "daily": [
   {
    "spend": 9.31,
@@ -659,7 +646,7 @@
    "ad_name": "Reel — Dosier CTN — Temario (A2)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.62
+   "frequency_7d": 1.53
   },
   {
    "spend": 275.82,
@@ -676,7 +663,7 @@
    "ad_name": "Reel — Dosier CTN — Orden (A2)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.44
+   "frequency_7d": 1.39
   },
   {
    "spend": 119.96,
@@ -710,7 +697,7 @@
    "ad_name": "Reel — Dosier CTN — Por dentro (A1)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.09
+   "frequency_7d": 1.07
   },
   {
    "spend": 4.61,
@@ -744,8 +731,8 @@
    "link_ctr": 0.019395146064330095,
    "adset_id": "52506066959396",
    "adset_name": "AS1 — Broad Advantage+ España",
-   "frequency_7d": 1.62,
-   "leads_7d": 62
+   "frequency_7d": 1.53,
+   "leads_7d": 45
   },
   {
    "spend": 124.57,
@@ -2806,32 +2793,32 @@
   {
    "level": "green",
    "key": "cpl",
-   "title": "CPL de 7 días en 1,22 €",
+   "title": "CPL de 7 días en 1,33 €",
    "detail": "Dentro del objetivo de 1,43 €."
   },
   {
    "level": "green",
    "key": "frecuencia",
    "title": "Frecuencia bajo control",
-   "detail": "Máximo de 1,62 en 7 días, con el límite en 4."
+   "detail": "Máximo de 1,53 en 7 días, con el límite en 4."
   },
   {
    "level": "green",
    "key": "ctr",
-   "title": "El CTR sube un 11 %",
-   "detail": "Del 3,46 % al 3,85 % respecto a la semana anterior."
+   "title": "El CTR sube un 10 %",
+   "detail": "Del 3,38 % al 3,71 % respecto a la semana anterior."
   },
   {
    "level": "amber",
    "key": "aprendizaje",
    "title": "Aprendizaje limitado",
-   "detail": "1 conjunto(s) por debajo de 50 conversiones en 7 días. El más bajo es AS2 · Broad Advantage+ ES · Lote R05-R06, con 0."
+   "detail": "2 conjunto(s) por debajo de 50 conversiones en 7 días. El más bajo es AS2 · Broad Advantage+ ES · Lote R05-R06, con 0."
   },
   {
    "level": "amber",
    "key": "entrega",
    "title": "Meta concentra la entrega",
-   "detail": "2 de los últimos 7 días con un anuncio por encima del 80 % del gasto de su conjunto. El último, el 7 de sep: «Reel — Dosier CTN — Temario (A2)» se llevó el 85 %. Los demás creativos se quedan sin datos.",
+   "detail": "1 de los últimos 7 días con un anuncio por encima del 80 % del gasto de su conjunto. El último, el 7 de sep: «Reel — Dosier CTN — Temario (A2)» se llevó el 85 %. Los demás creativos se quedan sin datos.",
    "ads": [
     "Reel — Dosier CTN — Temario (A2)"
    ]
