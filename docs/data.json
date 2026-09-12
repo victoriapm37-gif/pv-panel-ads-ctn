@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T13:25:12+02:00",
+ "generated_at": "2026-09-12T12:50:33+02:00",
  "campaign": {
   "id": "52506066958996",
   "name": "Descarga Dossier CTN - Prospecting España"
@@ -21,15 +21,15 @@
  },
  "windows": {
   "last7": {
-   "from": "2026-09-04",
-   "to": "2026-09-10"
+   "from": "2026-09-05",
+   "to": "2026-09-11"
   },
   "prev7": {
-   "from": "2026-08-28",
-   "to": "2026-09-03"
+   "from": "2026-08-29",
+   "to": "2026-09-04"
   },
-  "yesterday": "2026-09-10",
-  "today": "2026-09-11"
+  "yesterday": "2026-09-11",
+  "today": "2026-09-12"
  },
  "totals": {
   "spend": 762.38,
@@ -44,28 +44,28 @@
   "link_ctr": 0.020449541754134454
  },
  "last7": {
-  "spend": 47.07,
-  "leads": 36,
-  "impressions": 6277,
-  "clicks": 227,
-  "link_clicks": 159,
-  "reach": 5468.0,
-  "lpv": 53,
-  "cpl": 1.3075,
-  "ctr": 0.036163772502787954,
-  "link_ctr": 0.025330571929265574
+  "spend": 34.29,
+  "leads": 22,
+  "impressions": 4565,
+  "clicks": 167,
+  "link_clicks": 120,
+  "reach": 3979.0,
+  "lpv": 36,
+  "cpl": 1.5586,
+  "ctr": 0.03658269441401971,
+  "link_ctr": 0.02628696604600219
  },
  "prev7": {
-  "spend": 146.39,
-  "leads": 103,
-  "impressions": 18525,
-  "clicks": 631,
-  "link_clicks": 385,
-  "reach": 15854.0,
-  "lpv": 137,
-  "cpl": 1.4213,
-  "ctr": 0.03406207827260459,
-  "link_ctr": 0.02078272604588394
+  "spend": 133.16,
+  "leads": 98,
+  "impressions": 17640,
+  "clicks": 605,
+  "link_clicks": 367,
+  "reach": 15173.0,
+  "lpv": 136,
+  "cpl": 1.3588,
+  "ctr": 0.03429705215419501,
+  "link_ctr": 0.02080498866213152
  },
  "yesterday": null,
  "daily": [
@@ -646,7 +646,7 @@
    "ad_name": "Reel — Dosier CTN — Temario (A2)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.43
+   "frequency_7d": 1.32
   },
   {
    "spend": 275.82,
@@ -663,7 +663,7 @@
    "ad_name": "Reel — Dosier CTN — Orden (A2)",
    "adset_name": "AS1 — Broad Advantage+ España",
    "adset_id": "52506066959396",
-   "frequency_7d": 1.33
+   "frequency_7d": 1.23
   },
   {
    "spend": 119.96,
@@ -731,8 +731,8 @@
    "link_ctr": 0.019395146064330095,
    "adset_id": "52506066959396",
    "adset_name": "AS1 — Broad Advantage+ España",
-   "frequency_7d": 1.43,
-   "leads_7d": 36
+   "frequency_7d": 1.32,
+   "leads_7d": 22
   },
   {
    "spend": 124.57,
@@ -2793,20 +2793,20 @@
   {
    "level": "green",
    "key": "cpl",
-   "title": "CPL de 7 días en 1,31 €",
+   "title": "CPL de 7 días en 1,56 €",
    "detail": "Dentro del objetivo de 1,43 €."
   },
   {
    "level": "green",
    "key": "frecuencia",
    "title": "Frecuencia bajo control",
-   "detail": "Máximo de 1,43 en 7 días, con el límite en 4."
+   "detail": "Máximo de 1,32 en 7 días, con el límite en 4."
   },
   {
    "level": "green",
    "key": "ctr",
-   "title": "El CTR sube un 6 %",
-   "detail": "Del 3,41 % al 3,62 % respecto a la semana anterior."
+   "title": "El CTR sube un 7 %",
+   "detail": "Del 3,43 % al 3,66 % respecto a la semana anterior."
   },
   {
    "level": "amber",
