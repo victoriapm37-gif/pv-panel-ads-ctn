@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-20T13:28:03+02:00",
+ "generated_at": "2026-09-21T14:52:51+02:00",
  "campaign": {
   "id": "52506066958996",
   "name": "Descarga Dossier CTN - Prospecting España"
@@ -21,15 +21,15 @@
  },
  "windows": {
   "last7": {
-   "from": "2026-09-13",
-   "to": "2026-09-19"
+   "from": "2026-09-14",
+   "to": "2026-09-20"
   },
   "prev7": {
-   "from": "2026-09-06",
-   "to": "2026-09-12"
+   "from": "2026-09-07",
+   "to": "2026-09-13"
   },
-  "yesterday": "2026-09-19",
-  "today": "2026-09-20"
+  "yesterday": "2026-09-20",
+  "today": "2026-09-21"
  },
  "totals": {
   "spend": 762.38,
@@ -56,16 +56,16 @@
   "link_ctr": null
  },
  "prev7": {
-  "spend": 21.22,
-  "leads": 18,
-  "impressions": 2840,
-  "clicks": 112,
-  "link_clicks": 81,
-  "reach": 2459.0,
-  "lpv": 28,
-  "cpl": 1.1789,
-  "ctr": 0.03943661971830986,
-  "link_ctr": 0.02852112676056338
+  "spend": 5.18,
+  "leads": 3,
+  "impressions": 701,
+  "clicks": 24,
+  "link_clicks": 16,
+  "reach": 668.0,
+  "lpv": 6,
+  "cpl": 1.7267,
+  "ctr": 0.034236804564907276,
+  "link_ctr": 0.02282453637660485
  },
  "yesterday": null,
  "daily": [
@@ -2794,7 +2794,7 @@
    "level": "amber",
    "key": "cpl",
    "title": "Sin leads en 7 días",
-   "detail": "0,00 € gastados y ningún lead atribuido entre el 13 de sep y el 19 de sep."
+   "detail": "0,00 € gastados y ningún lead atribuido entre el 14 de sep y el 20 de sep."
   },
   {
    "level": "green",
