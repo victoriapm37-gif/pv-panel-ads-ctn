@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-03T13:42:50+02:00",
+ "generated_at": "2026-10-04T14:25:29+02:00",
  "campaign": {
   "id": "52506066958996",
   "name": "Descarga Dossier CTN - Prospecting España"
@@ -21,15 +21,15 @@
  },
  "windows": {
   "last7": {
-   "from": "2026-09-26",
-   "to": "2026-10-02"
+   "from": "2026-09-27",
+   "to": "2026-10-03"
   },
   "prev7": {
-   "from": "2026-09-19",
-   "to": "2026-09-25"
+   "from": "2026-09-20",
+   "to": "2026-09-26"
   },
-  "yesterday": "2026-10-02",
-  "today": "2026-10-03"
+  "yesterday": "2026-10-03",
+  "today": "2026-10-04"
  },
  "totals": {
   "spend": 762.38,
@@ -2794,7 +2794,7 @@
    "level": "amber",
    "key": "cpl",
    "title": "Sin leads en 7 días",
-   "detail": "0,00 € gastados y ningún lead atribuido entre el 26 de sep y el 2 de oct."
+   "detail": "0,00 € gastados y ningún lead atribuido entre el 27 de sep y el 3 de oct."
   },
   {
    "level": "green",
