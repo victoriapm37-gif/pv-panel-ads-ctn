@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T13:42:28+02:00",
+ "generated_at": "2026-10-22T13:57:13+02:00",
  "campaign": {
   "id": "52506066958996",
   "name": "Descarga Dossier CTN - Prospecting España"
@@ -21,15 +21,15 @@
  },
  "windows": {
   "last7": {
-   "from": "2026-10-13",
-   "to": "2026-10-19"
+   "from": "2026-10-15",
+   "to": "2026-10-21"
   },
   "prev7": {
-   "from": "2026-10-06",
-   "to": "2026-10-12"
+   "from": "2026-10-08",
+   "to": "2026-10-14"
   },
-  "yesterday": "2026-10-19",
-  "today": "2026-10-20"
+  "yesterday": "2026-10-21",
+  "today": "2026-10-22"
  },
  "totals": {
   "spend": 762.38,
@@ -37,7 +37,7 @@
   "impressions": 97655,
   "clicks": 3239,
   "link_clicks": 1997,
-  "reach": 82928.0,
+  "reach": 82927.0,
   "lpv": 1009,
   "cpl": 1.7171,
   "ctr": 0.03316778454764221,
@@ -257,7 +257,7 @@
    "impressions": 1,
    "clicks": 0,
    "link_clicks": 0,
-   "reach": 1.0,
+   "reach": 0.0,
    "lpv": 0,
    "cpl": null,
    "ctr": 0.0,
@@ -654,7 +654,7 @@
    "impressions": 34384,
    "clicks": 1137,
    "link_clicks": 715,
-   "reach": 28674.0,
+   "reach": 28673.0,
    "lpv": 350,
    "cpl": 1.8388,
    "ctr": 0.03306770590972545,
@@ -724,7 +724,7 @@
    "impressions": 87393,
    "clicks": 2708,
    "link_clicks": 1695,
-   "reach": 73949.0,
+   "reach": 73948.0,
    "lpv": 937,
    "cpl": 1.5866,
    "ctr": 0.030986463446729142,
@@ -2794,7 +2794,7 @@
    "level": "amber",
    "key": "cpl",
    "title": "Sin leads en 7 días",
-   "detail": "0,00 € gastados y ningún lead atribuido entre el 13 de oct y el 19 de oct."
+   "detail": "0,00 € gastados y ningún lead atribuido entre el 15 de oct y el 21 de oct."
   },
   {
    "level": "green",
